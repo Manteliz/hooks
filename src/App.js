@@ -26,11 +26,21 @@ function App() {
     });
   };
 
+  const changeName = (event) => {
+    setPeopleState({
+      people: [
+        { name: 'Mantaz', age: 26 },
+        { name: event.target.value, age: 27 },
+        { name: 'Shaunaz', age: 30 }
+      ]
+    });
+  };
+
   return (
     <div className="App">
       <h1>cia yra React Hooks</h1>
       <Person name={peopleState.people[0].name} age={peopleState.people[0].age} />
-      <Person name={peopleState.people[1].name} age={peopleState.people[1].age} />
+      <Person name={peopleState.people[1].name} age={peopleState.people[1].age} changed={changeName}/>
       <Person name={peopleState.people[2].name} age={peopleState.people[2].age} />
       <button onClick={switchState}> Switch state </button>
     </div>
